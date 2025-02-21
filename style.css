@@ -34,7 +34,15 @@
     border-radius: 20px;
 }
 
-.call{
-    height: 20px;
-    width: 20px;
+.app_icon{
+    margin-right: -30px;
+}
+
+.app_name{
+    font-size: medium;
+    font-weight: bold;
+}
+
+span{
+    font-size: 10px;
 }
