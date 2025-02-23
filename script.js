@@ -4,46 +4,77 @@ const overlay = document.querySelector('.overlay');
 const telegram = document.querySelector('.join_telegram');
 const instagram = document.querySelector('.join_instagram');
 const youtube = document.querySelector('.subscribe_youtube');
+const download = document.querySelector('.download_app');
 
-let download = document.querySelector('.download_app').disabled = true;
-let telegram_check = false;
-let instagram_check = false;
-let youtube_check = false;
+download.disabled = true;
+let telegram_check = localStorage.getItem('telegram_check') === 'true';
+let instagram_check = localStorage.getItem('instagram_check') === 'true';
+let youtube_check = localStorage.getItem('youtube_check') === 'true';
+let install_window_visible = localStorage.getItem('install_window_visible') === 'true';
+
+if(telegram_check){
+    telegram.style.backgroundColor = 'green';
+    telegram.disabled = true;
+}
+if(instagram_check){
+    instagram.style.backgroundColor = 'green';
+    instagram.disabled = true;
+}
+if(youtube_check){
+    youtube.style.backgroundColor = 'green';
+    youtube.disabled = true;
+}
+if(install_window_visible){
+    install_window.style.display = 'block';
+    overlay.style.display = 'block';
+}
+check();
 
 const show_install_window = function (){
     install_window.style.display = 'block';
     overlay.style.display = 'block';
+    localStorage.setItem('install_window_visible', 'true');
 }
 
 const hide_install_window = function (){
     install_window.style.display = 'none';
     overlay.style.display = 'none';
+    localStorage.setItem('install_window_visible', 'false');
 }
 
 const redirect_to_telegram = function (){
-    window.location.href = "https://www.telegram.com";
+    localStorage.setItem('telegram_check', 'true');
     telegram.style.backgroundColor = 'green';
     telegram_check = true;
+    check();
+    telegram.disabled = true;
+    window.location.href = "https://www.telegram.com";
 }
 
 const redirect_to_instagram = function (){
-    window.location.href = "https://www.instagram.com";
+    localStorage.setItem('instagram_check', 'true');
     instagram.style.backgroundColor = 'green';
     instagram_check = true;
+    check();
+    instagram.disabled = true;
+    window.location.href = "https://www.instagram.com";
 }
 
 const redirect_to_youtube = function (){
-    window.location.href = "https://www.youtube.com";
+    localStorage.setItem('youtube_check', 'true');
     youtube.style.backgroundColor = 'green';
     youtube_check = true;
+    check();
+    youtube.disabled = true;
+    window.location.href = "https://www.youtube.com";
 }
 
 function check(){
     if(telegram_check && instagram_check && youtube_check){
-        download = document.querySelector('.download_app').disabled = false;
+        download.disabled = false;
     }
     else{
-        alert('Join all the platforms to download the app');
+        download.disabled = true;
     }
 }
 
@@ -55,4 +86,26 @@ overlay.addEventListener('click', hide_install_window);
 telegram.addEventListener('click', redirect_to_telegram);
 instagram.addEventListener('click', redirect_to_instagram);
 youtube.addEventListener('click', redirect_to_youtube);
-check();
+
+download.addEventListener('click', function(){
+    localStorage.removeItem('telegram_check');
+    localStorage.removeItem('instagram_check');
+    localStorage.removeItem('youtube_check');
+    localStorage.removeItem('install_window_visible');
+
+    telegram.style.backgroundColor = rgb(6, 147, 241);
+    instagram.style.backgroundColor = rgb(244, 58, 7);
+    youtube.style.backgroundColor = 'red';
+
+    telegram.disabled = false;
+    instagram.disabled = false;
+    youtube.disabled = false;
+
+    telegram_check = false;
+    instagram_check = false;
+    youtube_check = false;
+    install_window_visible = false;
+
+    download.disabled = true;
+    hide_install_window();
+});
