@@ -35,7 +35,7 @@
 }
 
 .app_icon{
-    margin-right: -30px;
+    margin-right: -50px;
 }
 
 .app_name{
@@ -65,12 +65,12 @@ span{
 }
 
 #install_window{
-    display: none;
+    display: block;
     position: absolute;
     background-color: white;
     border: 2px solid black;
     border-radius: 20px;
-    width: 300px;
+    width: 400px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -123,5 +123,4 @@ span{
     border-radius: 10px;
     background-color: rgb(177, 171, 171);
     color: rgb(76, 74, 74);
-    border: none;
 }
