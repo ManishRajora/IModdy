@@ -5,6 +5,8 @@ const telegram = document.querySelector('.join_telegram');
 const instagram = document.querySelector('.join_instagram');
 const youtube = document.querySelector('.subscribe_youtube');
 const download = document.querySelector('.download_app');
+const progress_container = document.querySelector('.progress_container');
+const progress_bar = document.querySelector('.progress_bar');
 
 download.disabled = true;
 let telegram_check = localStorage.getItem('telegram_check') === 'true';
@@ -34,12 +36,14 @@ const show_install_window = function (){
     install_window.style.display = 'block';
     overlay.style.display = 'block';
     localStorage.setItem('install_window_visible', 'true');
+    document.body.classList.add('no-scroll');
 }
 
 const hide_install_window = function (){
     install_window.style.display = 'none';
     overlay.style.display = 'none';
     localStorage.setItem('install_window_visible', 'false');
+    document.body.classList.remove('no-scroll');
 }
 
 const redirect_to_telegram = function (){
@@ -72,8 +76,7 @@ const redirect_to_youtube = function (){
 function check(){
     if(telegram_check && instagram_check && youtube_check){
         download.disabled = false;
-    }
-    else{
+    }else{
         download.disabled = true;
     }
 }
@@ -93,8 +96,8 @@ download.addEventListener('click', function(){
     localStorage.removeItem('youtube_check');
     localStorage.removeItem('install_window_visible');
 
-    telegram.style.backgroundColor = rgb(6, 147, 241);
-    instagram.style.backgroundColor = rgb(244, 58, 7);
+    telegram.style.backgroundColor = 'rgb(6, 147, 241)';
+    instagram.style.backgroundColor = 'rgb(244, 58, 7)';
     youtube.style.backgroundColor = 'red';
 
     telegram.disabled = false;
@@ -107,5 +110,17 @@ download.addEventListener('click', function(){
     install_window_visible = false;
 
     download.disabled = true;
-    hide_install_window();
+    
+    progress_container.style.display = 'block';
+    let progress = 0;
+    const interval = setInterval(function (){
+        progress += 1;
+        progress_bar.style.width = progress + '%';
+        if(progress == 120){
+            clearInterval(interval);
+            progress_container.style.display = 'none';
+            hide_install_window();
+            alert('Download Complete');
+        }
+    }, 50);
 });
