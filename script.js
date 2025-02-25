@@ -43,6 +43,11 @@ const show_install_window = function (){
     localStorage.setItem('install_window_visible', 'true');
     localStorage.setItem('no_scroll', 'true');
     document.body.classList.add('no-scroll');
+    
+    /* overlay and install window pop up on visible viewport */
+    const scroll_Y = window.scrollY || window.pageYOffset;
+    install_window.style.top = `calc(50% + ${scroll_Y}px)`;
+    overlay.style.top = `${scroll_Y}px`;
 }
 
 const hide_install_window = function (){
