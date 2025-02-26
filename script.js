@@ -5,6 +5,10 @@ const telegram = document.querySelector('.join_telegram');
 const instagram = document.querySelector('.join_instagram');
 const youtube = document.querySelector('.subscribe_youtube');
 const download = document.querySelector('.download_app');
+const progress_container = document.querySelector('.progress_container');
+const progress_bar = document.querySelector('.progress_bar');
+const help = document.querySelector('.help');
+const blog = document.querySelector('.blog');
 
 download.disabled = true;
 
