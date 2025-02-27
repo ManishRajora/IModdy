@@ -7,6 +7,8 @@ const youtube = document.querySelector('.subscribe_youtube');
 const download = document.querySelector('.download_app');
 const progress_container = document.querySelector('.progress_container');
 const progress_bar = document.querySelector('.progress_bar');
+const help = document.querySelector('.help');
+const blog = document.querySelector('.blog');
 
 download.disabled = true;
 
@@ -92,6 +94,16 @@ function check(){
         download.disabled = true;
     }
 }
+
+function redirect_to_help(){
+    window.location.href = "help.html";
+}
+help.addEventListener('click', redirect_to_help);
+
+function redirect_to_blog(){
+    window.location.href = "blog.html";
+}
+blog.addEventListener('click', redirect_to_blog);
 
 for(let i = 0 ; i < install_btn.length ; i++){
     install_btn[i].addEventListener('click', show_install_window);
