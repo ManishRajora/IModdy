@@ -9,6 +9,7 @@ const progress_container = document.querySelector('.progress_container');
 const progress_bar = document.querySelector('.progress_bar');
 const help = document.querySelector('.help');
 const blog = document.querySelector('.blog');
+const top = document.querySelector('.back_to_top');
 
 download.disabled = true;
 
@@ -38,6 +39,13 @@ if(no_scroll){
     document.body.classList.add('no-scroll');
 }
 check();
+
+const scroll_top = function (){
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 
 const show_install_window = function (){
     install_window.style.display = 'block';
@@ -105,6 +113,7 @@ function redirect_to_blog(){
 }
 blog.addEventListener('click', redirect_to_blog);
 
+
 for(let i = 0 ; i < install_btn.length ; i++){
     install_btn[i].addEventListener('click', show_install_window);
 }
@@ -150,3 +159,5 @@ download.addEventListener('click', function(){
         }
     }, 50);
 });
+
+top.addEventListener('click', scroll_top);
