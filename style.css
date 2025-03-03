@@ -39,7 +39,7 @@ body.no-scroll{
 }
 
 .app_icon{
-    margin-right: -30px;
+    margin-right: -10px;
 }
 
 .app_name{
@@ -53,6 +53,7 @@ span{
 
 .install_btn{
     box-shadow: 5px 4px 7px 3px blue;
+    margin-right: 10px;
 }
 
 /* styling for install window id = 'install_window' */
