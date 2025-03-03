@@ -105,6 +105,7 @@ function redirect_to_blog(){
 }
 blog.addEventListener('click', redirect_to_blog);
 
+
 for(let i = 0 ; i < install_btn.length ; i++){
     install_btn[i].addEventListener('click', show_install_window);
 }
