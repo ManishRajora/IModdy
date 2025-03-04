@@ -9,6 +9,7 @@ const progress_container = document.querySelector('.progress_container');
 const progress_bar = document.querySelector('.progress_bar');
 const help = document.querySelector('.help');
 const blog = document.querySelector('.blog');
+const top_btn = document.querySelector('.back_to_top');
 
 download.disabled = true;
 
@@ -151,3 +152,7 @@ download.addEventListener('click', function(){
         }
     }, 50);
 });
+
+top_btn.addEventListener('click', function(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+})
