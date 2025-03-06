@@ -68,6 +68,13 @@ span{
     margin: 10px;
 }
 
+.foot_line{
+    font-size: xx-small;
+    text-align: end;
+    color: rgb(164, 164, 164);
+    margin-top: 30px;
+}
+
 /* styling for install window id = 'install_window' */
 .overlay{
     display: none;
