@@ -97,7 +97,7 @@ function check(){
 }
 
 function redirect_to_help(){
-    window.location.href = "help.html";
+    window.location.href = "Help.html";
 }
 help.addEventListener('click', redirect_to_help);
 

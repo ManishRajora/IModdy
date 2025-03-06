@@ -6,7 +6,7 @@ function back_to_home(){
 }
 
 function redirect_to_help(){
-    window.location.href = "help.html";
+    window.location.href = "Help.html";
 }
 
 home.addEventListener('click', back_to_home);
