@@ -72,7 +72,7 @@ const redirect_to_instagram_1 = function (){
 
 const redirect_to_instagram_2 = function (){
     localStorage.setItem('instagram_2_check', 'true');
-    instagram_1.style.backgroundColor = 'green';
+    instagram_2.style.backgroundColor = 'green';
     instagram_2_check = true;
     check();
     instagram_2.disabled = true;
