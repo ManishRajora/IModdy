@@ -106,22 +106,22 @@ span{
     margin-bottom: 20px;
 }
 
-.join_telegram{
+.join_instagram_1{
     height: 30px;
     width: 250px;
     font-weight: bold;
     font-size: larger;
     border-radius: 10px;
-    background-color: rgb(6, 147, 241);
+    background-color: rgb(244, 58, 7);
     color: white;
     border: none;
 }
 
-.join_instagram{
+.join_instagram_2{
     height: 30px;
     width: 250px;
     font-weight: bold;
-    font-size: large;
+    font-size: larger;
     border-radius: 10px;
     background-color: rgb(244, 58, 7);
     color: white;
@@ -132,7 +132,7 @@ span{
     height: 30px;
     width: 250px;
     font-weight: bold;
-    font-size: large;
+    font-size: larger;
     border-radius: 10px;
     background-color: red;
     color: white;

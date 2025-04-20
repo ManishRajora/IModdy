@@ -1,8 +1,8 @@
 const install_btn = document.querySelectorAll('.install_btn');
 const install_window = document.getElementById('install_window');
 const overlay = document.querySelector('.overlay');
-const telegram = document.querySelector('.join_telegram');
-const instagram = document.querySelector('.join_instagram');
+const instagram_1 = document.querySelector('.join_instagram_1');
+const instagram_2 = document.querySelector('.join_instagram_2');
 const youtube = document.querySelector('.subscribe_youtube');
 const download = document.querySelector('.download_app');
 const progress_container = document.querySelector('.progress_container');
@@ -13,19 +13,19 @@ const top_btn = document.querySelector('.back_to_top');
 
 download.disabled = true;
 
-let telegram_check = localStorage.getItem('telegram_check') === 'true';
-let instagram_check = localStorage.getItem('instagram_check') === 'true';
+let instagram_1_check = localStorage.getItem('instagram_1_check') === 'true';
+let instagram_2_check = localStorage.getItem('instagram_2_check') === 'true';
 let youtube_check = localStorage.getItem('youtube_check') === 'true';
 let install_window_visible = localStorage.getItem('install_window_visible') === 'true';
 let no_scroll = localStorage.getItem('no_scroll') === 'true';
 
-if(telegram_check){
-    telegram.style.backgroundColor = 'green';
-    telegram.disabled = true;
+if(instagram_1_check){
+    instagram_1.style.backgroundColor = 'green';
+    instagram_1.disabled = true;
 }
-if(instagram_check){
-    instagram.style.backgroundColor = 'green';
-    instagram.disabled = true;
+if(instagram_2_check){
+    instagram_2.style.backgroundColor = 'green';
+    instagram_2.disabled = true;
 }
 if(youtube_check){
     youtube.style.backgroundColor = 'green';
@@ -61,22 +61,22 @@ const hide_install_window = function (){
     document.body.classList.remove('no-scroll');
 }
 
-const redirect_to_telegram = function (){
-    localStorage.setItem('telegram_check', 'true');
-    telegram.style.backgroundColor = 'green';
-    telegram_check = true;
+const redirect_to_instagram_1 = function (){
+    localStorage.setItem('instagram_1_check', 'true');
+    instagram_1.style.backgroundColor = 'green';
+    instagram_1_check = true;
     check();
-    telegram.disabled = true;
-    window.location.href = "https://www.telegram.com";
+    instagram_1.disabled = true;
+    window.location.href = "https://www.instagram.com/iyournavya?igsh=em5hODJyaTNqYWVi";
 }
 
-const redirect_to_instagram = function (){
-    localStorage.setItem('instagram_check', 'true');
-    instagram.style.backgroundColor = 'green';
-    instagram_check = true;
+const redirect_to_instagram_2 = function (){
+    localStorage.setItem('instagram_2_check', 'true');
+    instagram_1.style.backgroundColor = 'green';
+    instagram_2_check = true;
     check();
-    instagram.disabled = true;
-    window.location.href = "https://www.instagram.com";
+    instagram_2.disabled = true;
+    window.location.href = "https://www.instagram.com/a7allgame?igsh=MWR0Mnduc250NTdpOQ==";
 }
 
 const redirect_to_youtube = function (){
@@ -85,11 +85,11 @@ const redirect_to_youtube = function (){
     youtube_check = true;
     check();
     youtube.disabled = true;
-    window.location.href = "https://www.youtube.com";
+    window.location.href = "https://youtube.com/@a7allgame?feature=shared";
 }
 
 function check(){
-    if(telegram_check && instagram_check && youtube_check){
+    if(instagram_1_check && instagram_2_check && youtube_check){
         download.disabled = false;
     }else{
         download.disabled = true;
@@ -112,27 +112,27 @@ for(let i = 0 ; i < install_btn.length ; i++){
 }
 overlay.addEventListener('click', hide_install_window);
 
-telegram.addEventListener('click', redirect_to_telegram);
-instagram.addEventListener('click', redirect_to_instagram);
+instagram_1.addEventListener('click', redirect_to_instagram_1);
+instagram_2.addEventListener('click', redirect_to_instagram_2);
 youtube.addEventListener('click', redirect_to_youtube);
 
 download.addEventListener('click', function(){
-    localStorage.removeItem('telegram_check');
-    localStorage.removeItem('instagram_check');
+    localStorage.removeItem('instagram_1_check');
+    localStorage.removeItem('instagram_2_check');
     localStorage.removeItem('youtube_check');
     localStorage.removeItem('install_window_visible');
     localStorage.removeItem('no_scroll');
 
-    telegram.style.backgroundColor = 'rgb(6, 147, 241)';
-    instagram.style.backgroundColor = 'rgb(244, 58, 7)';
+    instagram_1.style.backgroundColor = 'rgb(244, 58, 7)';
+    instagram_2.style.backgroundColor = 'rgb(244, 58, 7)';
     youtube.style.backgroundColor = 'red';
 
-    telegram.disabled = false;
-    instagram.disabled = false;
+    instagram_1.disabled = false;
+    instagram_2.disabled = false;
     youtube.disabled = false;
 
-    telegram_check = false;
-    instagram_check = false;
+    instagram_1_check = false;
+    instagram_2_check = false;
     youtube_check = false;
     install_window_visible = false;
     no_scroll = false;
